@@ -1,0 +1,53 @@
+<h1>New Ingredient Search</h1>
+
+<%= form_tag searches_path do %>
+  <p>oils</p>
+    <% @oils.each do |oil| %>
+        <li>
+          <%= check_box_tag 'ingredients[]', oil.name -%>
+          <%= h oil.name -%>
+        </li>
+    <% end %>
+
+  <p>spices</p>
+    <% @spices.each do |spice| %>
+        <li>
+          <%= check_box_tag 'ingredients[]', spice.name -%>
+          <%= h spice.name -%>
+        </li>
+    <% end %>
+
+    <p>vegfruits</p>
+      <% @vegfruits.each do |vegfruit| %>
+          <li>
+            <%= check_box_tag 'ingredients[]', vegfruit.name -%>
+            <%= h vegfruit.name -%>
+          </li>
+      <% end %>
+
+    <p>meatdairys</p>
+      <% @meatdairys.each do |meatdairy| %>
+          <li>
+            <%= check_box_tag 'ingredients[]', meatdairy.name -%>
+            <%= h meatdairy.name -%>
+          </li>
+      <% end %>
+
+      <p>grains</p>
+        <% @grains.each do |grain| %>
+            <li>
+              <%= check_box_tag 'ingredients[]', grain.name -%>
+              <%= h grain.name -%>
+            </li>
+        <% end %>
+
+      <p>nuts</p>
+        <% @nuts.each do |nut| %>
+            <li>
+              <%= check_box_tag 'ingredients[]', nut.name -%>
+              <%= h nut.name -%>
+            </li>
+        <% end %>
+
+  <%= submit_tag %>
+<% end %>

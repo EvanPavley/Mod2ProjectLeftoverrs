@@ -1,7 +1,36 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Ingredient.create(name:"olive oil", category:"oils")
+Ingredient.create(name:"butter", category:"oils")
+Ingredient.create(name:"vegetable oil", category:"oils")
+
+Ingredient.create(name:"salt", category:"spices")
+Ingredient.create(name:"pepper", category:"spices")
+Ingredient.create(name:"paprika", category:"spices")
+Ingredient.create(name:"cumin", category:"spices")
+Ingredient.create(name:"garlic", category:"spices")
+Ingredient.create(name:"onion", category:"spices")
+
+Ingredient.create(name:"spinach", category:"vegfruits")
+Ingredient.create(name:"carrot", category:"vegfruits")
+Ingredient.create(name:"broccoli", category:"vegfruits")
+Ingredient.create(name:"potato", category:"vegfruits")
+Ingredient.create(name:"tomato", category:"vegfruits")
+Ingredient.create(name:"banana", category:"vegfruits")
+Ingredient.create(name:"watermelon", category:"vegfruits")
+Ingredient.create(name:"apple", category:"vegfruits")
+
+Ingredient.create(name:"eggs", category:"meatdairys")
+Ingredient.create(name:"chicken", category:"meatdairys")
+Ingredient.create(name:"beef", category:"meatdairys")
+Ingredient.create(name:"pork", category:"meatdairys")
+Ingredient.create(name:"salmon", category:"meatdairys")
+Ingredient.create(name:"shrimp", category:"meatdairys")
+Ingredient.create(name:"tuna", category:"meatdairys")
+
+Ingredient.create(name:"pasta", category:"grains")
+Ingredient.create(name:"bread", category:"grains")
+Ingredient.create(name:"oatmeal", category:"grains")
+Ingredient.create(name:"rice", category:"grains")
+
+Ingredient.create(name:"peanut", category:"nuts")
+Ingredient.create(name:"almond", category:"nuts")
+Ingredient.create(name:"cashew", category:"nuts")
