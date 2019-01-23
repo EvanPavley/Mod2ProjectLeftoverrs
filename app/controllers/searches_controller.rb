@@ -8,10 +8,12 @@ class SearchesController < ApplicationController
     @meatdairys = Ingredient.where(category: "meatdairys")
     @grains = Ingredient.where(category: "grains")
     @nuts = Ingredient.where(category: "nuts")
+
+
   end
 
   def create
-    @search = Search.create(ingredients: ingredients_to_s(), user_id: 1 )
+    @search = Search.create(ingredients: ingredients_to_s(), user_id: session[:user_id])
     redirect_to search_path(@search)
   end
 

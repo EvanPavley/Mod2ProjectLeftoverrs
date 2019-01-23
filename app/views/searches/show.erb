@@ -1,7 +1,13 @@
-<h1>Recipe Titles</h1>
-<h2></h2>
+<h1>Recipes:</h1>
+<p><%= link_to "your profile", user_path(session[:user_id]) %></p>
+
 <% @response.each do |r| %>
-  <p><%=link_to r["title"], r["href"]%></p>
+  <p><%=link_to r["title"], r["href"], target: :_blank %></p>
   <img src="<%=r["thumbnail"]%>" alt="">
+  <%= form_tag ({controller: 'recipes', action: 'create', method: 'post'}) do %>
+    <input type ="hidden" name="recipe[name]" value='<%= r["title"]%>'>
+    <input type ="hidden" name="recipe[img]" value='<%= r["thumbnail"]%>'>
+    <input type ="hidden" name="recipe[link]" value='<%= r["href"]%>'>
+    <input type=submit value='favorite'>
+  <% end %>
 <% end %>
-<%= @response %>

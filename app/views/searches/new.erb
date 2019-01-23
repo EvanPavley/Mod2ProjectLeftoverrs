@@ -1,7 +1,7 @@
-<h1>New Ingredient Search</h1>
+<h1>Search by Ingredients</h1>
 
 <%= form_tag searches_path do %>
-  <p>oils</p>
+  <p><strong>Oils:</strong></p>
     <% @oils.each do |oil| %>
         <li>
           <%= check_box_tag 'ingredients[]', oil.name -%>
@@ -9,7 +9,7 @@
         </li>
     <% end %>
 
-  <p>spices</p>
+  <p><strong>Spices:</strong></p>
     <% @spices.each do |spice| %>
         <li>
           <%= check_box_tag 'ingredients[]', spice.name -%>
@@ -17,7 +17,7 @@
         </li>
     <% end %>
 
-    <p>vegfruits</p>
+    <p><strong>Vegs/Fruits:</strong></p>
       <% @vegfruits.each do |vegfruit| %>
           <li>
             <%= check_box_tag 'ingredients[]', vegfruit.name -%>
@@ -25,7 +25,7 @@
           </li>
       <% end %>
 
-    <p>meatdairys</p>
+    <p><strong>Meats/Dairy:</strong></p>
       <% @meatdairys.each do |meatdairy| %>
           <li>
             <%= check_box_tag 'ingredients[]', meatdairy.name -%>
@@ -33,7 +33,7 @@
           </li>
       <% end %>
 
-      <p>grains</p>
+      <p><strong>Grains:</strong></p>
         <% @grains.each do |grain| %>
             <li>
               <%= check_box_tag 'ingredients[]', grain.name -%>
@@ -41,13 +41,13 @@
             </li>
         <% end %>
 
-      <p>nuts</p>
+      <p><strong>Nuts:</strong></p>
         <% @nuts.each do |nut| %>
             <li>
               <%= check_box_tag 'ingredients[]', nut.name -%>
               <%= h nut.name -%>
             </li>
         <% end %>
-
-  <%= submit_tag %>
+        <br>
+  <%= submit_tag "Search!"%>
 <% end %>

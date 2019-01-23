@@ -1,14 +1,19 @@
 <p id="notice"><%= notice %></p>
+<h1><strong><%= @user.user_name %></strong></h1>
+<br>
+<p><strong>Previous Searches:</strong></p>
+<p><% @user.searches.each do |search| %></p>
+    <p> Ingredients: <%= link_to search.ingredients, search %> </p>
+    <p> Created_At: <%= search.created_at %> </p>
+   <% end %>
+<br>
+<p><strong>Favorited Recipes:</strong></p>
+<p><% @user.recipes.each do |r| %></p>
+    <p> <%=link_to r.name, r.link, target: :_blank %> </p>
+  <% end %>
+<br>
+<p><%= link_to 'Back to Search', new_search_path %></p>
 
-<p>
-  <strong>User name:</strong>
-  <%= @user.user_name %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= form_tag ({controller: 'session', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='logout'>
+<% end %>
