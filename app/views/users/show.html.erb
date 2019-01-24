@@ -6,28 +6,9 @@
 </nav>
 
 <br>
-<h3><strong>Previous Searches:</strong></h3>
-  <div class="row">
-    <!-- EACH LOOP -->
-    <p><% @user.searches.each do |search| %></p>
-      <div class="col-sm">
-        <div class="card" style="width: 12rem;">
-          <div class="card-body">
-            <h5 class="card-title"><p><%=link_to search.ingredients, search %></p></h5>
-            <%= form_tag ({controller: 'searches', action: 'destroy', method: 'post'}) do %>
-            <input type ="hidden" name="search[id]" value='<%= search.id%>'>
-            <input class="btn btn-secondary btn-sm" type=submit value='delete search'>
-            <% end %>
-          </div>
-        </div>
-        <br>
-        <br>
-      </div>
-      <% end %>
-  </div>
-<br>
-<br>
-<h3><strong>Favorited Recipes:</strong></h3>
+<div class=" headerr">
+  <h3><strong>Favorited Recipes:</strong></h3>
+</div>
 <div class="row">
   <!-- EACH LOOP -->
   <p><% @user.recipes.each do |r| %></p>
@@ -47,5 +28,28 @@
     </div>
     <% end %>
 </div>
+<br>
+<br>
+<div class=" headerr">
+  <h3><strong>Previous Searches:</strong></h3>
+</div>
+  <div class="row">
+    <!-- EACH LOOP -->
+    <p><% @user.searches.each do |search| %></p>
+      <div class="col-sm">
+        <div class="card" style="width: 12rem;">
+          <div class="card-body">
+            <h5 class="card-title"><p><%=link_to search.ingredients, search %></p></h5>
+            <%= form_tag ({controller: 'searches', action: 'destroy', method: 'post'}) do %>
+            <input type ="hidden" name="search[id]" value='<%= search.id%>'>
+            <input class="btn btn-secondary btn-sm" type=submit value='delete search'>
+            <% end %>
+          </div>
+        </div>
+        <br>
+        <br>
+      </div>
+      <% end %>
+  </div>
 <br>
 <a class="btn btn-secondary btn-sm" href="<%= new_search_path() %>" role="button">New Search</a>

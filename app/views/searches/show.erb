@@ -15,7 +15,12 @@
               <% if r["thumbnail"].length > 0 %>
               <div class="col-sm">
                 <div class="card" style="width: 12rem;">
-                  <img src="<%=r["thumbnail"]%>" class="card-img-top" alt="" height="150" width="200">
+                  <%  @page = MetaInspector.new(r["href"])
+                      @img = @page.images.best %>
+                  <% if @img == nil %>
+                    <% @img = r["thumbnail"] %>
+                  <% end %>
+                  <img src="<%= @img %>" class="card-img-top" alt="" height="150" width="200">
                   <div class="card-body">
                     <h5 class="card-title"><p><%=link_to r["title"], r["href"], target: :_blank %></p></h5>
                     <% this_recipe = Recipe.where(name: r["title"])[0] %>
@@ -26,7 +31,7 @@
                     <% end %>
                     <%= form_tag ({controller: 'recipes', action: 'create', method: 'post'}) do %>
                       <input type ="hidden" name="recipe[name]" value='<%= r["title"]%>'>
-                      <input type ="hidden" name="recipe[img]" value='<%= r["thumbnail"]%>'>
+                      <input type ="hidden" name="recipe[img]" value='<%= @img %>'>
                       <input type ="hidden" name="recipe[link]" value='<%= r["href"]%>'>
                       <input type ="hidden" name="search[id]" value='<%=@search.id%>'>
                       <input class="btn btn-secondary btn-sm" type=submit value='favorite'>

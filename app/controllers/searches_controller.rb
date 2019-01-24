@@ -1,4 +1,6 @@
 class SearchesController < ApplicationController
+  require 'metainspector'
+
   before_action :require_login
 
   def new
@@ -31,7 +33,6 @@ class SearchesController < ApplicationController
   end
 
   def destroy
-    # byebug
     @search = Search.find(params[:search][:id].to_i)
     @search.destroy
     redirect_to user_path(session[:user_id])

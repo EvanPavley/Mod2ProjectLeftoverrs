@@ -20,7 +20,7 @@ body {
  .imgbackground {
    background-image:    url(https://foodrevolution.org/wp-content/uploads/2018/04/blog-featured-diabetes-20180406-1330.jpg);
    background-attachment: fixed;
-   background-repeat: no-repeat;
+   background-repeat: repeat-y;
    background-size: cover;
    height: 100vh;
    width: 100vw;
@@ -42,7 +42,7 @@ body {
 }
 .welcome {
   text-align: center;
-  background-color: #bcd6ffa1;
+  background-color: #e9f0fbc9;
   text-align: center;
   padding: 10px;
   width: 450px;
@@ -51,20 +51,15 @@ body {
 
 .login {
   text-align: center;
-  background-color: #bcd6ffa1;
+  background-color: #e9f0fbc9;
   text-align: center;
   padding: 10px;
   width: 300px;
   height: 380px;
 }
 
-.container-login {
-  text-align: center;
-  background-color: #ffffff4f;
-  text-align: center;
-  padding: 10px;
-  width: 450px;
-  height: 250px;
+.headerr{
+  background-color: white;
 }
 
 .display-4 {
