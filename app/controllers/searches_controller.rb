@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  #only if your logged in
+  before_action :require_login
 
   def new
     @oils = Ingredient.where(category: "oils")
@@ -8,8 +8,6 @@ class SearchesController < ApplicationController
     @meatdairys = Ingredient.where(category: "meatdairys")
     @grains = Ingredient.where(category: "grains")
     @nuts = Ingredient.where(category: "nuts")
-
-
   end
 
   def create
@@ -30,6 +28,19 @@ class SearchesController < ApplicationController
     @search = Search.find(params[:id])
     x = "http://www.recipepuppy.com/api/?i=" + @search.ingredients
     @response = JSON.parse(HTTParty.get(x))["results"]
+  end
+
+  def destroy
+    # byebug
+    @search = Search.find(params[:search][:id].to_i)
+    @search.destroy
+    redirect_to user_path(session[:user_id])
+  end
+
+  private
+
+  def require_login
+    return redirect_to login_path() unless session.include? :user_id
   end
 
 end

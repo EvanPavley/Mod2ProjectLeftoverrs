@@ -1,56 +1,25 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
-  # GET /recipes
-  # GET /recipes.json
-  def index
-    @recipes = Recipe.all
-  end
-
-  # GET /recipes/1
-  # GET /recipes/1.json
-  def show
-  end
-
-  # GET /recipes/new
   def new
     @recipe = Recipe.new
   end
 
-  # GET /recipes/1/edit
-  def edit
-  end
-
-  # POST /recipes
-  # POST /recipes.json
   def create
     @user = User.find(session[:user_id])
     @recipe = Recipe.find_or_create_by(recipe_params)
-    @user.recipes << @recipe
-  end
-
-  # PATCH/PUT /recipes/1
-  # PATCH/PUT /recipes/1.json
-  def update
-    respond_to do |format|
-      if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipe }
-      else
-        format.html { render :edit }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
-      end
+    if !@user.recipes.include?(@recipe)
+      @user.recipes << @recipe
+      redirect_to search_path(params[:search][:id].to_i)
     end
   end
 
-  # DELETE /recipes/1
-  # DELETE /recipes/1.json
   def destroy
-    @recipe.destroy
-    respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @user = User.find(session[:user_id])
+    @recipe = Recipe.find(params[:recipe][:id].to_i)
+    @join = UserRecipe.where(user_id: @user.id, recipe_id: @recipe.id)[0]
+    @join.destroy
+    redirect_to user_path(session[:user_id])
   end
 
   private

@@ -4,12 +4,20 @@
 <p><strong>Previous Searches:</strong></p>
 <p><% @user.searches.each do |search| %></p>
     <p> Ingredients: <%= link_to search.ingredients, search %> </p>
-    <p> Created_At: <%= search.created_at %> </p>
+    <!-- <p> Created_At: <%= search.created_at %> </p> -->
+    <%= form_tag ({controller: 'searches', action: 'destroy', method: 'post'}) do %>
+    <input type ="hidden" name="search[id]" value='<%= search.id%>'>
+    <input type=submit value='delete search'>
+    <% end %>
    <% end %>
 <br>
 <p><strong>Favorited Recipes:</strong></p>
 <p><% @user.recipes.each do |r| %></p>
     <p> <%=link_to r.name, r.link, target: :_blank %> </p>
+    <%= form_tag ({controller: 'recipes', action: 'destroy', method: 'post'}) do %>
+    <input type ="hidden" name="recipe[id]" value='<%= r.id%>'>
+    <input type=submit value='delete recipe'>
+    <% end %>
   <% end %>
 <br>
 <p><%= link_to 'Back to Search', new_search_path %></p>

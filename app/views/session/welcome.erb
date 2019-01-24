@@ -1,15 +1,13 @@
 
-
   <div class="imgbackground">
     <table class="table"">
       <tbody>
         <tr>
           <td class="align-middle">
             <div class="jumbotron">
-              <h1 class="display-4">Sign Up</h1>
+              <h1 class="display-4">Welcome to <br> Leftoverrs!</h1>
               <br>
-              <%= render 'form', user: @user %>
-              <br>
+              <a class="btn btn-primary btn-lg" href="<%= new_user_path() %>" role="button">Sign Up</a>
               <a class="btn btn-primary btn-lg" href="<%= login_path() %>" role="button">Login</a>
             </div>
           </td>

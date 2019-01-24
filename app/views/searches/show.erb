@@ -1,13 +1,42 @@
 <h1>Recipes:</h1>
 <p><%= link_to "your profile", user_path(session[:user_id]) %></p>
 
-<% @response.each do |r| %>
-  <p><%=link_to r["title"], r["href"], target: :_blank %></p>
-  <img src="<%=r["thumbnail"]%>" alt="">
-  <%= form_tag ({controller: 'recipes', action: 'create', method: 'post'}) do %>
-    <input type ="hidden" name="recipe[name]" value='<%= r["title"]%>'>
-    <input type ="hidden" name="recipe[img]" value='<%= r["thumbnail"]%>'>
-    <input type ="hidden" name="recipe[link]" value='<%= r["href"]%>'>
-    <input type=submit value='favorite'>
-  <% end %>
-<% end %>
+<table class="table"">
+  <tbody>
+    <tr>
+      <td class="align-middle">
+
+          <div class="row">
+            <% @response.each do |r| %>
+              <% if r["thumbnail"].length > 0 %>
+              <div class="col-sm">
+                <div class="card" style="width: 10rem;">
+                  <img src="<%=r["thumbnail"]%>" class="card-img-top" alt="" height="150" width="200">
+                  <div class="card-body">
+                    <h5 class="card-title"><p><%=link_to r["title"], r["href"], target: :_blank %></p></h5>
+                    <% this_recipe = Recipe.where(name: r["title"])[0] %>
+                    <% if !this_recipe%>
+                      <p>favorited by: 0 </p>
+                    <% else %>
+                      <p>favorited by: <%= this_recipe.users_count %> </p>
+                    <% end %>
+                    <%= form_tag ({controller: 'recipes', action: 'create', method: 'post'}) do %>
+                      <input type ="hidden" name="recipe[name]" value='<%= r["title"]%>'>
+                      <input type ="hidden" name="recipe[img]" value='<%= r["thumbnail"]%>'>
+                      <input type ="hidden" name="recipe[link]" value='<%= r["href"]%>'>
+                      <input type ="hidden" name="search[id]" value='<%=@search.id%>'>
+                      <input type=submit value='favorite'>
+                    <% end %>
+                  </div>
+                </div>
+                <br>
+                <br>
+              </div>
+              <% end %>
+            <% end %>
+          </div>
+
+      </td>
+    </tr>
+  </tbody>
+</table>

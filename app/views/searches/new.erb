@@ -1,53 +1,76 @@
-<h1>Search by Ingredients</h1>
+<table class="table"">
+  <tbody>
+    <tr>
+      <td class="align-middle">
+        <h1>Search by Ingredients</h1>
+        <p><%= link_to "your profile", user_path(session[:user_id]) %></p>
 
-<%= form_tag searches_path do %>
-  <p><strong>Oils:</strong></p>
-    <% @oils.each do |oil| %>
-        <li>
-          <%= check_box_tag 'ingredients[]', oil.name -%>
-          <%= h oil.name -%>
-        </li>
-    <% end %>
-
-  <p><strong>Spices:</strong></p>
-    <% @spices.each do |spice| %>
-        <li>
-          <%= check_box_tag 'ingredients[]', spice.name -%>
-          <%= h spice.name -%>
-        </li>
-    <% end %>
-
-    <p><strong>Vegs/Fruits:</strong></p>
-      <% @vegfruits.each do |vegfruit| %>
-          <li>
-            <%= check_box_tag 'ingredients[]', vegfruit.name -%>
-            <%= h vegfruit.name -%>
-          </li>
-      <% end %>
-
-    <p><strong>Meats/Dairy:</strong></p>
-      <% @meatdairys.each do |meatdairy| %>
-          <li>
-            <%= check_box_tag 'ingredients[]', meatdairy.name -%>
-            <%= h meatdairy.name -%>
-          </li>
-      <% end %>
-
-      <p><strong>Grains:</strong></p>
-        <% @grains.each do |grain| %>
-            <li>
-              <%= check_box_tag 'ingredients[]', grain.name -%>
-              <%= h grain.name -%>
-            </li>
+        <%= form_tag searches_path do %>
+          <div class="row">
+            <div class="col-sm">
+                <p><strong>Oils:</strong></p>
+                  <% @oils.each do |oil| %>
+                      <li class="list-group-item">
+                        <%= check_box_tag 'ingredients[]', oil.name -%>
+                        <%= h oil.name -%>
+                      </li>
+                  <% end %>
+            </div>
+            <div class="col-sm">
+              <p><strong>Spices:</strong></p>
+                <% @spices.each do |spice| %>
+                    <li class="list-group-item">
+                      <%= check_box_tag 'ingredients[]', spice.name -%>
+                      <%= h spice.name -%>
+                    </li>
+                <% end %>
+            </div>
+            <div class="col-sm">
+              <p><strong>Vegs/Fruits:</strong></p>
+                <% @vegfruits.each do |vegfruit| %>
+                    <li class="list-group-item">
+                      <%= check_box_tag 'ingredients[]', vegfruit.name -%>
+                      <%= h vegfruit.name -%>
+                    </li>
+                <% end %>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-sm">
+              <p><strong>Meats/Dairy:</strong></p>
+                <% @meatdairys.each do |meatdairy| %>
+                    <li class="list-group-item">
+                      <%= check_box_tag 'ingredients[]', meatdairy.name -%>
+                      <%= h meatdairy.name -%>
+                    </li>
+                <% end %>
+            </div>
+            <div class="col-sm">
+              <p><strong>Grains:</strong></p>
+                <% @grains.each do |grain| %>
+                    <li class="list-group-item">
+                      <%= check_box_tag 'ingredients[]', grain.name -%>
+                      <%= h grain.name -%>
+                    </li>
+                <% end %>
+            </div>
+            <div class="col-sm">
+              <p><strong>Nuts:</strong></p>
+                <% @nuts.each do |nut| %>
+                    <li class="list-group-item">
+                      <%= check_box_tag 'ingredients[]', nut.name -%>
+                      <%= h nut.name -%>
+                    </li>
+                <% end %>
+            </div>
+          </div>
+          <br>
+          <br>
+          <%= submit_tag "Search!"%>
         <% end %>
-
-      <p><strong>Nuts:</strong></p>
-        <% @nuts.each do |nut| %>
-            <li>
-              <%= check_box_tag 'ingredients[]', nut.name -%>
-              <%= h nut.name -%>
-            </li>
-        <% end %>
-        <br>
-  <%= submit_tag "Search!"%>
-<% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
