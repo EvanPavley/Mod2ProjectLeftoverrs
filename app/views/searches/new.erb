@@ -1,14 +1,19 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand"><h1><strong>Search by Ingredients:</strong></h1></a>
+  <form class="form-inline">
+    <a class="btn btn-secondary btn-sm" href="<%= user_path(session[:user_id]) %>" role="button">Profile</a>
+  </form>
+</nav>
+
 <table class="table"">
   <tbody>
     <tr>
       <td class="align-middle">
-        <h1>Search by Ingredients</h1>
-        <p><%= link_to "your profile", user_path(session[:user_id]) %></p>
 
         <%= form_tag searches_path do %>
           <div class="row">
             <div class="col-sm">
-                <p><strong>Oils:</strong></p>
+                <h3><strong>Oils:</strong></h3>
                   <% @oils.each do |oil| %>
                       <li class="list-group-item">
                         <%= check_box_tag 'ingredients[]', oil.name -%>
@@ -17,7 +22,7 @@
                   <% end %>
             </div>
             <div class="col-sm">
-              <p><strong>Spices:</strong></p>
+              <h3><strong>Spices:</strong></h3>
                 <% @spices.each do |spice| %>
                     <li class="list-group-item">
                       <%= check_box_tag 'ingredients[]', spice.name -%>
@@ -26,7 +31,7 @@
                 <% end %>
             </div>
             <div class="col-sm">
-              <p><strong>Vegs/Fruits:</strong></p>
+              <h3><strong>Vegs/Fruits:</strong></h3>
                 <% @vegfruits.each do |vegfruit| %>
                     <li class="list-group-item">
                       <%= check_box_tag 'ingredients[]', vegfruit.name -%>
@@ -39,7 +44,7 @@
           <br>
           <div class="row">
             <div class="col-sm">
-              <p><strong>Meats/Dairy:</strong></p>
+              <h3><strong>Meats/Dairy:</strong></h3>
                 <% @meatdairys.each do |meatdairy| %>
                     <li class="list-group-item">
                       <%= check_box_tag 'ingredients[]', meatdairy.name -%>
@@ -48,7 +53,7 @@
                 <% end %>
             </div>
             <div class="col-sm">
-              <p><strong>Grains:</strong></p>
+              <h3><strong>Grains:</strong></h3>
                 <% @grains.each do |grain| %>
                     <li class="list-group-item">
                       <%= check_box_tag 'ingredients[]', grain.name -%>
@@ -57,7 +62,7 @@
                 <% end %>
             </div>
             <div class="col-sm">
-              <p><strong>Nuts:</strong></p>
+              <h3><strong>Nuts:</strong></h3>
                 <% @nuts.each do |nut| %>
                     <li class="list-group-item">
                       <%= check_box_tag 'ingredients[]', nut.name -%>

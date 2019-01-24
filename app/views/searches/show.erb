@@ -1,5 +1,9 @@
-<h1>Recipes:</h1>
-<p><%= link_to "your profile", user_path(session[:user_id]) %></p>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand"><h1><strong>Recipes:</strong></h1></a>
+  <form class="form-inline">
+    <a class="btn btn-secondary btn-sm" href="<%= user_path(session[:user_id]) %>" role="button">Profile</a>
+  </form>
+</nav>
 
 <table class="table"">
   <tbody>
@@ -10,7 +14,7 @@
             <% @response.each do |r| %>
               <% if r["thumbnail"].length > 0 %>
               <div class="col-sm">
-                <div class="card" style="width: 10rem;">
+                <div class="card" style="width: 12rem;">
                   <img src="<%=r["thumbnail"]%>" class="card-img-top" alt="" height="150" width="200">
                   <div class="card-body">
                     <h5 class="card-title"><p><%=link_to r["title"], r["href"], target: :_blank %></p></h5>
@@ -25,7 +29,7 @@
                       <input type ="hidden" name="recipe[img]" value='<%= r["thumbnail"]%>'>
                       <input type ="hidden" name="recipe[link]" value='<%= r["href"]%>'>
                       <input type ="hidden" name="search[id]" value='<%=@search.id%>'>
-                      <input type=submit value='favorite'>
+                      <input class="btn btn-secondary btn-sm" type=submit value='favorite'>
                     <% end %>
                   </div>
                 </div>

@@ -15,7 +15,7 @@
  */
 body {
   margin: 0px;
-  background-color: lightblue;
+  background-color: #bcd6ff;
 }
  .imgbackground {
    background-image:    url(https://foodrevolution.org/wp-content/uploads/2018/04/blog-featured-diabetes-20180406-1330.jpg);
@@ -33,16 +33,45 @@ body {
  a:visited {
     color: black;
   }
-
  .jumbotron {
     text-align: center;
     background-color: #ffffff4f;
+    text-align: center;
+    padding: 10px;
+    width: 50%
 }
+.welcome {
+  text-align: center;
+  background-color: #bcd6ffa1;
+  text-align: center;
+  padding: 10px;
+  width: 450px;
+  height: 250px;
+}
+
+.login {
+  text-align: center;
+  background-color: #bcd6ffa1;
+  text-align: center;
+  padding: 10px;
+  width: 300px;
+  height: 380px;
+}
+
+.container-login {
+  text-align: center;
+  background-color: #ffffff4f;
+  text-align: center;
+  padding: 10px;
+  width: 450px;
+  height: 250px;
+}
+
 .display-4 {
   color: #black;
   font-weight: bold;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: white;
+  /* -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: white; */
 }
 
 .btn-primary {
@@ -74,10 +103,18 @@ a:hover {
   color: black;
 }
 
+h3{
+  margin-left: 10px;
+}
+
+.btn-secondary{
+  margin: 15px
+}
+
 label {
   color: black;
   font-size: 25px;
   font-weight: bold;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+  /* -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white; */
 }
