@@ -16,11 +16,15 @@
       <div class="card" style="width: 12rem;">
         <img src="<%=r.img %>" class="card-img-top" alt="" height="150" width="200">
         <div class="card-body">
-          <h5 class="card-title"><p><%=link_to r.name, r.link, target: :_blank %></p></h5>
-          <%= form_tag ({controller: 'recipes', action: 'destroy', method: 'post'}) do %>
-          <input type ="hidden" name="recipe[id]" value='<%= r.id%>'>
-          <input class="btn btn-secondary btn-sm" type=submit value='delete recipe'>
-          <% end %>
+          <div id="linkk">
+            <h5 class="card-title"><p><%=link_to r.name, r.link, target: :_blank %></p></h5>
+          </div>
+          <div class="borderr3">
+            <%= form_tag ({controller: 'recipes', action: 'destroy', method: 'post'}) do %>
+            <input type ="hidden" name="recipe[id]" value='<%= r.id%>'>
+            <input class="btn btn-secondary btn-sm" type=submit value='delete recipe'>
+            <% end %>
+          </div>
         </div>
       </div>
       <br>
@@ -39,11 +43,15 @@
       <div class="col-sm">
         <div class="card" style="width: 12rem;">
           <div class="card-body">
-            <h5 class="card-title"><p><%=link_to search.ingredients, search %></p></h5>
-            <%= form_tag ({controller: 'searches', action: 'destroy', method: 'post'}) do %>
-            <input type ="hidden" name="search[id]" value='<%= search.id%>'>
-            <input class="btn btn-secondary btn-sm" type=submit value='delete search'>
-            <% end %>
+            <div id="linkk">
+              <h5 class="card-title"><p><%=link_to search.ingredients, search %></p></h5>
+            </div>
+            <div class="borderr3">
+              <%= form_tag ({controller: 'searches', action: 'destroy', method: 'post'}) do %>
+              <input type ="hidden" name="search[id]" value='<%= search.id%>'>
+              <input class="btn btn-secondary btn-sm" type=submit value='delete search'>
+              <% end %>
+            </div>
           </div>
         </div>
         <br>
